@@ -57,8 +57,14 @@ const zooAnimals = [
   */
 
   function animalNames(/*Your Code Here*/){
-    /*Your Code Here*/
-  }
+   let newa2=[]
+ function items (){
+      return newa2.push(zooAnimals.animal_name+zooAnimals.scientific_name)
+    }
+    zooAnimals.forEach(items)
+    return newa
+    }
+  
   
 
   /* 🦁🦁🦁 Request 2: .map() 🦁🦁🦁
@@ -68,8 +74,12 @@ const zooAnimals = [
   */
 
   function lowerCaseNames(/*Your Code Here*/){
-    /*Your Code Here*/
+    var sorted = zooAnimals.map(function(value) {
+      return value.animal_name.toLowerCase();
+  }).sort();
+  return sorted
   }
+ 
   
   
   /* 🦁🦁🦁 Request 3: .filter() 🦁🦁🦁
@@ -78,8 +88,14 @@ const zooAnimals = [
   */
 
   function lowPopulationAnimals(/*Your Code Here*/){
-    /*Your Code Here*/
+    const pop = zooAnimals
+    .filter(function(item2){
+      return item2.population<5
+  });
+  return pop
   }
+  
+  
   
 
   /* 🦁🦁🦁 Request 4: .reduce() 🦁🦁🦁
