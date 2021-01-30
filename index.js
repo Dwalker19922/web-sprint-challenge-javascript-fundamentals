@@ -28,10 +28,12 @@ myFunction();
     
 For example, `summation(4)` should return 10 because 1+2+3+4 is 10. Note, you may use a for loop for this function if you wish */
 
-function summation(/*Your Code Here*/) {
-  /*Your Code Here*/
-
-  }
+function summation(num) {
+    let fullArr = []; let sum = 0; const reducer = (accumulator, currentValue) => accumulator + currentValue;
+    function sort(a,b){return a-b};
+    for (let i = 0; i <= num; i++) { fullArr.push(i); }
+    sum = fullArr. reduce(reducer);
+    return sum;}
  
 
 // 🦁🦁🦁 Topic 2: ADVANCED Array Methods 🦁🦁🦁
@@ -57,13 +59,10 @@ const zooAnimals = [
   */
 
   function animalNames(/*Your Code Here*/){
-   let newa2=[]
- function items (){
-      return newa2.push(zooAnimals.animal_name+zooAnimals.scientific_name)
-    }
-    zooAnimals.forEach(items)
-    return newa
-    }
+      const names = zooAnimals.map((item) =>{ return "name: " + item.animal_name +","+ " scientific: "+ item.scientific_name});
+      return names
+      }
+  
   
   
 
@@ -105,8 +104,14 @@ const zooAnimals = [
   */
 
   function USApop(/*Your Code Here*/){
-    /*Your Code Here*/
-  }
+    var usap = zooAnimals.map(function(value) {
+      return value.population })
+    const sum = usap.reduce(add,0);
+function add(accumulator, a) {
+    return accumulator + a;
+}
+return sum
+}
   
   
   // 🦁🦁🦁 Callbacks 🦁🦁🦁  
@@ -116,30 +121,43 @@ const zooAnimals = [
     * The last parameter accepts a callback
     * The consume function should return the invocation of cb, passing a and b into cb as arguments
   */
+ function cba(a,b){
+  var sum = a + b;
+return sum}
+function cbb(a,b){
+  var product=a*b
+  return product
+}
 
-  function consume(/*Your Code Here */){
-    /*Your Code Here */
+  function consume(a,b,cbCB){
+
+      var total =cba(a,b)
+      return total
+  
   }
  
   
   /* 🦁🦁🦁 Step 2: Create several functions to callback with consume(); 🦁🦁🦁 */
  // 🦁🦁🦁 Use add to return the sum of two numbers 🦁🦁🦁
   
-function add(/*Your Code Here */){
-    /*Your Code Here*/
-  }
+function add(a,b,cb){
+  let sum=a+b
+  return sum
+    }
+  
+  
 
 // 🦁🦁🦁 Use multiply to return the product of two numbers 🦁🦁🦁
   
-function multiply(/*Your Code Here */){
-   /*Your Code Here */
+function multiply(a,b,){
+var prode = cbb(a,b)
+return prode
   }
 
  // 🦁🦁🦁 Use greeting to accept a first and last name and return "Hello {first-name} {last-name}, nice to meet you!" 🦁🦁🦁
   
-function greeting(/*Your Code Here */){
-   return /*Your Code Here */
-  }
+function greeting(x,y){
+return 'Hello ' +x +" "+y +", nice to meet you!"}
   
   // 🦁🦁🦁 Step 3: Check your work by un-commenting the following calls to consume(): 🦁🦁🦁 
   // ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️
@@ -159,15 +177,18 @@ function greeting(/*Your Code Here */){
 /* 🐴🐴🐴 Step 1: Base Constructor 🐴🐴🐴
  Use the constructor function named CuboidMaker to accept properties for length, width, and height which can be initialized as an object
 */
-function CuboidMaker(/*Your Code Here */){
-  /*Your Code Here */
-}
-
+function CuboidMaker(length,width,height){
+  this.length = length
+  this.width=  width
+  this.height = height;
+  return length,height,width}
 
 /* 🐴🐴🐴 Step 2: Volume Method 🐴🐴🐴
   Create a method called volume using CuboidMaker's prototype that returns the volume of a given cuboid's length, width, and height
   Formula for cuboid volume: length * width * height   */
-
+  CuboidMaker.prototype.volume = function(length,width,height){this.volum =length *width * height;
+    return this.volum
+  }
 
 
 
@@ -176,7 +197,10 @@ function CuboidMaker(/*Your Code Here */){
   Create another method called surfaceArea using CuboidMaker's prototype that returns the surface area of a given cuboid's length, width, and height. 
   Formula for cuboid surface area of a cube: 
   2 * (length * width + length * height + width * height)  */
-
+  CuboidMaker.prototype.surfaceArea = function(length,hieght,width){
+    let surface = 2 * (this.length * this.width +this.length * this.height + this.width * this.height)
+    return surface
+    }
 
 
 
@@ -184,15 +208,15 @@ function CuboidMaker(/*Your Code Here */){
 /* 🐴🐴🐴 Step 4: Create a new object that uses CuboidMaker 🐴🐴🐴
   Create an object called cuboid that uses the new keyword to use our CuboidMaker constructor
   Add properties and values of length: 4, width: 5, and height: 5 to cuboid. */
-
+const cuboid = new CuboidMaker(4,5,5)
 
 
 
 
 // 🐴🐴🐴 Test your volume and surfaceArea methods by uncommenting the logs below: 🐴🐴🐴
 // ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️
-// console.log(cuboid.volume()); // 100
-// console.log(cuboid.surfaceArea()); // 130
+ console.log(cuboid.volume()); // 100
+ console.log(cuboid.surfaceArea()); // 130
  
 
 // 🦄🦄🦄 Topic 4: Classes 🦄🦄🦄 //
