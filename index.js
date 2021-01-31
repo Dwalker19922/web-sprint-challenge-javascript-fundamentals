@@ -173,21 +173,24 @@ return 'Hello ' +x +" "+y +", nice to meet you!"}
 
 
 // 🐴🐴🐴 Topic 3: Prototypes 🐴🐴🐴 //
-//🐴🐴🐴 Task: You are to build a cuboid maker that can return values for a cuboid's volume or surface area. Cuboids are similar to cubes but do not have even sides. Follow the steps in order to accomplish this challenge. 🐴🐴🐴
+//🐴🐴🐴 Task: You are to build a cuboid maker that can return values for a cuboid's volume or surface area. Cuboids are similar to cubes but do not have even
+// sides. Follow the steps in order to accomplish this challenge. 🐴🐴🐴
 /* 🐴🐴🐴 Step 1: Base Constructor 🐴🐴🐴
  Use the constructor function named CuboidMaker to accept properties for length, width, and height which can be initialized as an object
 */
-function CuboidMaker(length,width,height){
-  this.length = length
-  this.width=  width
-  this.height = height;
-  return length,height,width}
+
+function CuboidMaker(object){
+  this.length = object.length
+  this.width=  object.width
+  this.height = object.height
+}
 
 /* 🐴🐴🐴 Step 2: Volume Method 🐴🐴🐴
   Create a method called volume using CuboidMaker's prototype that returns the volume of a given cuboid's length, width, and height
   Formula for cuboid volume: length * width * height   */
-  CuboidMaker.prototype.volume = function(length,width,height){this.volum =length *width * height;
-    return this.volum
+  CuboidMaker.prototype.volume = function(){
+  const volume = this.length *this.width * this.height;
+    return volume
   }
 
 
@@ -197,10 +200,10 @@ function CuboidMaker(length,width,height){
   Create another method called surfaceArea using CuboidMaker's prototype that returns the surface area of a given cuboid's length, width, and height. 
   Formula for cuboid surface area of a cube: 
   2 * (length * width + length * height + width * height)  */
-  CuboidMaker.prototype.surfaceArea = function(length,hieght,width){
+  CuboidMaker.prototype.surfaceArea = function(objject){
     let surface = 2 * (this.length * this.width +this.length * this.height + this.width * this.height)
     return surface
-    }
+  }
 
 
 
@@ -208,10 +211,7 @@ function CuboidMaker(length,width,height){
 /* 🐴🐴🐴 Step 4: Create a new object that uses CuboidMaker 🐴🐴🐴
   Create an object called cuboid that uses the new keyword to use our CuboidMaker constructor
   Add properties and values of length: 4, width: 5, and height: 5 to cuboid. */
-const cuboid = new CuboidMaker(4,5,5)
-
-
-
+const cuboid = new CuboidMaker({length:4,height:5,width: 5})
 
 // 🐴🐴🐴 Test your volume and surfaceArea methods by uncommenting the logs below: 🐴🐴🐴
 // ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️
@@ -222,8 +222,22 @@ const cuboid = new CuboidMaker(4,5,5)
 // 🦄🦄🦄 Topic 4: Classes 🦄🦄🦄 //
 //🦄🦄🦄 1. Take your prototypes from above and refactor into class syntax. Please rename your class CuboidMakerTwo and your object cuboidTwo 🦄🦄🦄
 class CuboidMakerTwo{
-
+  constructor(object){
+    this.length=object.length
+    this.width =  object.width
+    this.height =  object.height
+  }
+  volume(){
+    const volume = this.length *this.width * this.height;
+    return volume
+  }
+  surfaceArea(){
+    let surface = 2 * (this.length * this.width +this.length * this.height + this.width * this.height)
+    return surface
+    
+  }
 }
+const cuboidTwo = new CuboidMakerTwo({length:4,width:5,length:5})
 
 
 //🦄🦄🦄 Test your volume and surfaceArea methods by uncommenting the logs below: 🦄🦄🦄
